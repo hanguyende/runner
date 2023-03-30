@@ -1,0 +1,16 @@
+name: cctests
+
+on: push
+
+jobs:
+  job_1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout code
+        run: actions/checkout@v3
+        
+      - name: run Super-Linter
+        run: github/super-linter@v3
+        env: 
+          DEFAUL_BRANCH: main
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
